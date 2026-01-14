@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shri Vidit Raj & Architects | Udaipur-based Design Studio</title>
+    <title>SHRI VIDIT RAJ & ARCHITECTS | Udaipur-based Design Studio</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
@@ -265,22 +265,10 @@
             padding: 30px;
         }
 
-        .about-image::before {
-            content: "High-End Luxury Design";
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            color: var(--primary-light);
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .about-image::after {
-            content: "Premium Architecture";
-            font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            color: var(--accent);
-            font-style: italic;
-            font-weight: 500;
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Services Section */
@@ -352,6 +340,42 @@
             font-size: 20px;
             margin-bottom: 15px;
             transition: var(--transition);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background-color: var(--light-bg);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 250px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Contact Section */
@@ -494,10 +518,6 @@
             .hero p {
                 font-size: 18px;
             }
-
-            .about-image::before {
-                font-size: 28px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -554,12 +574,8 @@
                 height: 400px;
             }
 
-            .about-image::before {
-                font-size: 24px;
-            }
-
-            .about-image::after {
-                font-size: 16px;
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
         }
 
@@ -583,12 +599,12 @@
                 height: 300px;
             }
 
-            .about-image::before {
-                font-size: 20px;
+            .gallery-grid {
+                grid-template-columns: 1fr;
             }
 
-            .about-image::after {
-                font-size: 14px;
+            .gallery-item {
+                height: 200px;
             }
         }
     </style>
@@ -598,7 +614,7 @@
     <!-- Header & Navigation -->
     <header>
         <div class="container header-container">
-            <div class="logo">VR<span>ARCHITECTS</span></div>
+            <div class="logo">SV<span>RA</span></div>
 
             <div class="mobile-toggle">
                 <i class="fas fa-bars"></i>
@@ -608,6 +624,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#why-us">Why Us</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -637,7 +654,7 @@
 
             <div class="about-content">
                 <div class="about-text">
-                    <p>Shri Vidit Raj & Architects is an Udaipur-based <strong>high-end luxury</strong> architecture and
+                    <p>SHRI VIDIT RAJ & ARCHITECTS is an Udaipur-based <strong>high-end luxury</strong> architecture and
                         interior design studio delivering refined, functional, and timeless design solutions. Our work
                         responds to site, lifestyle, and context while maintaining strong aesthetic clarity and
                         technical discipline.</p>
@@ -655,7 +672,16 @@
                     </div>
                 </div>
 
-                <div class="about-image"></div>
+                <div class="about-image">
+                    <!-- Replace with actual image -->
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent) 100%); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Playfair Display'; font-size: 24px; text-align: center; padding: 20px;">
+                        <div>
+                            <div style="font-size: 36px; margin-bottom: 10px;">SVRA</div>
+                            <div>SHRI VIDIT RAJ & ARCHITECTS</div>
+                            <div style="font-size: 14px; margin-top: 20px; opacity: 0.8;">Udaipur | Luxury Architecture</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -716,6 +742,48 @@
                     </div>
                     <h3>Design Consultancy</h3>
                     <p>End-to-end guidance from concept development to project execution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Projects</h2>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #2b2e4a 0%, #3a3f6b 100%); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Playfair Display'; font-size: 18px;">
+                        Residential Project 1
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #3a3f6b 0%, #b76e79 100%); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Playfair Display'; font-size: 18px;">
+                        Commercial Design
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #b76e79 0%, #d8a5b1 100%); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Playfair Display'; font-size: 18px;">
+                        Interior Design
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #d8a5b1 0%, #2b2e4a 100%); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Playfair Display'; font-size: 18px;">
+                        Luxury Villa
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #2b2e4a 0%, #b76e79 100%); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Playfair Display'; font-size: 18px;">
+                        Office Space
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #3a3f6b 0%, #d8a5b1 100%); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Playfair Display'; font-size: 18px;">
+                        Residential Project 2
+                    </div>
                 </div>
             </div>
         </div>
@@ -822,7 +890,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <div class="footer-logo">VR ARCHITECTS</div>
+                    <div class="footer-logo">SVRA</div>
                     <p>Creating <strong>luxury spaces</strong> that inspire, function, and endure. Udaipur-based
                         architecture and interior design studio specializing in <strong>high-end residential and
                             commercial projects</strong>.</p>
@@ -834,6 +902,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#why-us">Why Us</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -855,7 +924,7 @@
             </div>
 
             <div class="copyright">
-                © 2023 Shri Vidit Raj & Architects. All Rights Reserved.
+                © 2023 SHRI VIDIT RAJ & ARCHITECTS. All Rights Reserved.
             </div>
         </div>
     </footer>
