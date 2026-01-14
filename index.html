@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shri Vidit Raj & Architects | Udaipur-based Design Studio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #2b2e4a;
+            --primary-light: #3a3f6b;
+            --accent: #b76e79;
+            --accent-light: #d8a5b1;
+            --light-bg: #f8f9fa;
+            --light-gray: #e9ecef;
+            --text-dark: #1f1f1f;
+            --text-medium: #555;
+            --text-light: #777;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--primary-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 500;
+            font-size: 15px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 22px;
+            cursor: pointer;
+            color: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--primary-dark);
+            height: 90vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--white);
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .tagline {
+            font-size: 18px;
+            font-style: italic;
+            color: var(--accent-light);
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: 2px solid var(--accent);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-dark);
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+            color: var(--text-medium);
+            font-size: 17px;
+        }
+
+        .philosophy-box {
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-left: 4px solid var(--accent);
+            margin-top: 30px;
+        }
+
+        .philosophy-box h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .about-image {
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 500px;
+            background-color: var(--light-gray);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px;
+        }
+
+        .about-image::before {
+            content: "High-End Luxury Design";
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--primary-light);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .about-image::after {
+            content: "Premium Architecture";
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: var(--accent);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--light-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-medium);
+        }
+
+        /* Why Choose Us Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature {
+            padding: 30px;
+            background-color: var(--white);
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature:hover {
+            background-color: var(--primary-dark);
+            color: var(--white);
+        }
+
+        .feature:hover h3 {
+            color: var(--white);
+        }
+
+        .feature h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--primary-dark);
+            color: var(--white);
+        }
+
+        .contact-section h2,
+        .contact-section h3 {
+            color: var(--white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            font-size: 20px;
+            color: var(--accent-light);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            border-radius: 3px;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .contact-form button {
+            background-color: var(--accent);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            border-radius: 3px;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--accent-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 70px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h3,
+        .footer-newsletter h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: var(--white);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-light);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .about-image::before {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+
+            .about-image::before {
+                font-size: 24px;
+            }
+
+            .about-image::after {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                height: 80vh;
+                min-height: 600px;
+            }
+
+            .btn {
+                display: block;
+                margin-bottom: 15px;
+                width: 100%;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .about-image::before {
+                font-size: 20px;
+            }
+
+            .about-image::after {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">VR<span>ARCHITECTS</span></div>
+
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>SHRI VIDIT RAJ & ARCHITECTS</h1>
+            <p class="tagline">Designing Spaces | Defining Life</p>
+            <p>Udaipur-based architecture and interior design studio delivering refined, functional, and timeless design
+                solutions.</p>
+            <div>
+                <a href="#contact" class="btn">Start Your Project</a>
+                <a href="#services" class="btn btn-outline">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About the Studio</h2>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Shri Vidit Raj & Architects is an Udaipur-based <strong>high-end luxury</strong> architecture and
+                        interior design studio delivering refined, functional, and timeless design solutions. Our work
+                        responds to site, lifestyle, and context while maintaining strong aesthetic clarity and
+                        technical discipline.</p>
+
+                    <p>We believe that architecture should not only serve its purpose but also inspire and enhance the
+                        human experience. Each project is a unique opportunity to create <strong>premium luxury
+                            spaces</strong> that resonate with their occupants and surroundings.</p>
+
+                    <div class="philosophy-box">
+                        <h3>Our Design Philosophy</h3>
+                        <p><strong>Innovate. Connect. Create.</strong></p>
+                        <p>We design <strong>luxury spaces</strong> that are purposeful, human-centric, and enduring.
+                            Each project is approached with sensitivity towards context, materiality, and the evolving
+                            needs of <strong>high-end contemporary living</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3>Architectural Design</h3>
+                    <p>Residential and commercial architecture with strong spatial planning and aesthetic sensibility.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3>Interior Design</h3>
+                    <p>Functional, <strong>luxury interiors</strong> tailored to user needs, lifestyle, and brand
+                        identity.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h3>Space Planning</h3>
+                    <p>Efficient layouts that enhance usability, flow, and spatial relationships.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Renovation & Redevelopment</h3>
+                    <p>Modern upgrades while respecting existing structures and historical context.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>3D Visualization</h3>
+                    <p>Concept development and visual storytelling through detailed 3D renderings.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>Design Consultancy</h3>
+                    <p>End-to-end guidance from concept development to project execution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="why-us">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature">
+                    <h3>Client-Focused Process</h3>
+                    <p>Transparent, collaborative approach with clear communication at every stage.</p>
+                </div>
+
+                <div class="feature">
+                    <h3>Attention to Detail</h3>
+                    <p>Meticulous attention to design details and precise execution.</p>
+                </div>
+
+                <div class="feature">
+                    <h3>Contemporary Solutions</h3>
+                    <p>Modern, practical design solutions tailored to your specific needs.</p>
+                </div>
+
+                <div class="feature">
+                    <h3>Technical Excellence</h3>
+                    <p>Strong technical discipline combined with creative innovation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <p><strong>Phone:</strong> +91 8239602323</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p><strong>Email:</strong> viditrajarchitects@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div>
+                            <p><strong>Website:</strong> <a href="http://www.viditrajarchitects.com" target="_blank"
+                                    style="color: var(--accent-light);">www.viditrajarchitects.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <p><strong>Office Address:</strong><br>
+                                305, Shubham Complex, New Fatehpura,<br>
+                                Udaipur, Rajasthan – 313001</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Start Your Project</h3>
+                    <form id="projectForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="tel" placeholder="Your Phone">
+                        <textarea rows="5" placeholder="Project Details" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">VR ARCHITECTS</div>
+                    <p>Creating <strong>luxury spaces</strong> that inspire, function, and endure. Udaipur-based
+                        architecture and interior design studio specializing in <strong>high-end residential and
+                            commercial projects</strong>.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#why-us">Why Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h3>Connect With Us</h3>
+                    <p>Follow our latest <strong>luxury projects</strong> and design insights.</p>
+                    <div style="margin-top: 20px;">
+                        <a href="#" style="color: white; margin-right: 15px; font-size: 20px;"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white; margin-right: 15px; font-size: 20px;"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" style="color: white; margin-right: 15px; font-size: 20px;"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="#" style="color: white; font-size: 20px;"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                © 2023 Shri Vidit Raj & Architects. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileToggle.querySelector('i').classList.toggle('fa-bars');
+            mobileToggle.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileToggle.querySelector('i').classList.add('fa-bars');
+                mobileToggle.querySelector('i').classList.remove('fa-times');
+            });
+        });
+
+        // Form submission
+        document.getElementById('projectForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We will contact you shortly.');
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '10px 0';
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    </script>
+</body>
+
+</html>
